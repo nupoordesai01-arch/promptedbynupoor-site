@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Prompt Library &middot; Prompted by Nupoor</title>
+<meta name="description" content="The Prompted by Nupoor prompt library. Copy-paste prompts for writing, planning, and daily life." />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600;700&family=DM+Mono:wght@400;500&family=DM+Sans:wght@400;500;600&display=swap" rel="stylesheet" />
+<style>
+  :root {
+    --ink: #1A1A1A;
+    --champagne: #C4956A;
+    --glow: #F0E5D8;
+    --cream: #FAF8F4;
+    --white: #FFFFFF;
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  html { -webkit-font-smoothing: antialiased; -moz-osx-font-smoothing: grayscale; }
+  body {
+    font-family: 'DM Sans', system-ui, sans-serif;
+    background: var(--cream);
+    color: var(--ink);
+    line-height: 1.55;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 32px 20px;
+  }
+  .wrap {
+    width: 100%;
+    max-width: 540px;
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+  }
+  .back {
+    font-family: 'DM Mono', monospace;
+    font-size: 11px;
+    text-transform: uppercase;
+    letter-spacing: 1.3px;
+    color: var(--ink);
+    opacity: 0.55;
+    text-decoration: none;
+    display: inline-block;
+    margin-bottom: 40px;
+    transition: opacity 0.15s ease;
+  }
+  .back:hover { opacity: 1; color: var(--champagne); }
+  .label {
+    font-family: 'DM Mono', monospace;
+    font-size: 11px;
+    text-transform: uppercase;
+    letter-spacing: 1.4px;
+    color: var(--champagne);
+    margin-bottom: 14px;
+    font-weight: 500;
+  }
+  h1 {
+    font-family: 'Cormorant Garamond', serif;
+    font-weight: 600;
+    font-size: 44px;
+    letter-spacing: -0.015em;
+    line-height: 1.05;
+    margin-bottom: 18px;
+  }
+  .lede {
+    font-size: 17px;
+    color: var(--ink);
+    opacity: 0.78;
+    margin-bottom: 40px;
+    max-width: 460px;
+  }
+  .card {
+    background: var(--glow);
+    border-radius: 16px;
+    padding: 32px 28px;
+    margin-bottom: 28px;
+  }
+  .card h2 {
+    font-family: 'Cormorant Garamond', serif;
+    font-weight: 600;
+    font-size: 26px;
+    margin-bottom: 10px;
+    letter-spacing: -0.005em;
+  }
+  .card p {
+    font-size: 15px;
+    opacity: 0.82;
+    margin-bottom: 20px;
+  }
+  .cta {
+    display: inline-block;
+    background: var(--ink);
+    color: var(--white);
+    text-decoration: none;
+    padding: 14px 22px;
+    border-radius: 10px;
+    font-weight: 500;
+    font-size: 15px;
+    transition: all 0.15s ease;
+  }
+  .cta:hover {
+    background: #000;
+    transform: translateY(-1px);
+    box-shadow: 0 8px 20px rgba(26, 26, 26, 0.15);
+  }
+  .small {
+    font-size: 13px;
+    opacity: 0.6;
+    margin-top: 14px;
+  }
+  footer {
+    margin-top: auto;
+    padding-top: 40px;
+    font-family: 'DM Mono', monospace;
+    font-size: 11px;
+    text-transform: uppercase;
+    letter-spacing: 1.3px;
+    opacity: 0.45;
+    text-align: center;
+  }
+  footer a { color: inherit; text-decoration: none; }
+  footer a:hover { color: var(--champagne); opacity: 1; }
+  @media (max-width: 480px) {
+    h1 { font-size: 34px; }
+    .card { padding: 26px 22px; }
+  }
+</style>
+</head>
+<body>
+  <main class="wrap">
+    <a class="back" href="/">&larr; Back</a>
+
+    <div class="label">The Prompt Library</div>
+    <h1>Real prompts. For real life.</h1>
+    <p class="lede">A small, growing library of copy-paste prompts for writing, planning, understanding something complicated, and the Sunday-night scroll you never finish. No generic templates. Only the ones that actually work.</p>
+
+    <div class="card">
+      <h2>The library is being built</h2>
+      <p>First batch drops to the newsletter list. Subscribers get it in their inbox the day it goes live, plus every update after.</p>
+      <a class="cta" href="https://promptedbynupoor.substack.com" target="_blank" rel="noopener">Get it in your inbox &rarr;</a>
+      <div class="small">Free. Weekly. Unsubscribe anytime.</div>
+    </div>
+  </main>
+
+  <footer>
+    <em>Prompted by Nupoor</em> &middot;
+    <a href="https://instagram.com/promptedbynupoor" target="_blank" rel="noopener">@promptedbynupoor</a>
+    &middot; AI made simple for women who don't code.
+  </footer>
+</body>
+</html>

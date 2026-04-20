@@ -1,0 +1,746 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AI Tool Finder | Prompted by Nupoor</title>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400&family=DM+Sans:wght@400;500;600;700&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  :root {
+    --ink: #1A1A1A;
+    --champagne: #C4956A;
+    --glow: #F0E5D8;
+    --cream: #FAF8F4;
+    --white: #FFFFFF;
+    --champagne-light: rgba(196, 149, 106, 0.12);
+  }
+
+  body {
+    font-family: 'DM Sans', sans-serif;
+    background: var(--cream);
+    color: var(--ink);
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .container {
+    max-width: 480px;
+    width: 100%;
+    padding: 24px 20px;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+  }
+
+  /* Header */
+  .header {
+    text-align: center;
+    padding: 32px 0 24px;
+  }
+
+  .header .brand {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 14px;
+    font-weight: 500;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: var(--champagne);
+    margin-bottom: 20px;
+  }
+
+  .header h1 {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 32px;
+    font-weight: 600;
+    line-height: 1.2;
+    color: var(--ink);
+    margin-bottom: 12px;
+  }
+
+  .header p {
+    font-size: 15px;
+    line-height: 1.5;
+    color: #666;
+  }
+
+  /* Progress bar */
+  .progress-wrap {
+    margin: 8px 0 32px;
+  }
+
+  .progress-bar {
+    height: 3px;
+    background: var(--glow);
+    border-radius: 3px;
+    overflow: hidden;
+  }
+
+  .progress-fill {
+    height: 100%;
+    background: var(--champagne);
+    border-radius: 3px;
+    transition: width 0.4s ease;
+  }
+
+  .progress-label {
+    font-size: 12px;
+    color: #999;
+    margin-top: 8px;
+    text-align: right;
+  }
+
+  /* Question screens */
+  .screen {
+    display: none;
+    flex: 1;
+    animation: fadeIn 0.3s ease;
+  }
+
+  .screen.active { display: flex; flex-direction: column; }
+
+  @keyframes fadeIn {
+    from { opacity: 0; transform: translateY(8px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+
+  .question-label {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 24px;
+    font-weight: 600;
+    line-height: 1.3;
+    margin-bottom: 24px;
+  }
+
+  /* Option cards */
+  .options { display: flex; flex-direction: column; gap: 12px; }
+
+  .option {
+    background: var(--white);
+    border: 1.5px solid transparent;
+    border-radius: 12px;
+    padding: 16px 20px;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    display: flex;
+    align-items: flex-start;
+    gap: 14px;
+  }
+
+  .option:hover { border-color: var(--champagne); }
+  .option.selected {
+    border-color: var(--champagne);
+    background: var(--champagne-light);
+  }
+
+  .option-icon {
+    width: 36px;
+    height: 36px;
+    border-radius: 8px;
+    background: var(--glow);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 18px;
+    flex-shrink: 0;
+  }
+
+  .option.selected .option-icon { background: var(--champagne); }
+  .option.selected .option-icon span { filter: brightness(10); }
+
+  .option-text h3 {
+    font-size: 15px;
+    font-weight: 600;
+    margin-bottom: 3px;
+  }
+
+  .option-text p {
+    font-size: 13px;
+    color: #888;
+    line-height: 1.4;
+  }
+
+  /* Result card */
+  .result-screen {
+    display: none;
+    flex-direction: column;
+    animation: fadeIn 0.4s ease;
+  }
+
+  .result-screen.active { display: flex; }
+
+  .result-header {
+    text-align: center;
+    margin-bottom: 28px;
+  }
+
+  .result-header .eyebrow {
+    font-size: 12px;
+    font-weight: 600;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: var(--champagne);
+    margin-bottom: 12px;
+  }
+
+  .result-header h2 {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 28px;
+    font-weight: 600;
+    line-height: 1.2;
+  }
+
+  .result-card {
+    background: var(--white);
+    border-radius: 16px;
+    padding: 28px 24px;
+    margin-bottom: 16px;
+    box-shadow: 0 2px 16px rgba(0,0,0,0.04);
+  }
+
+  .result-card .tool-badge {
+    display: inline-block;
+    background: var(--champagne);
+    color: var(--white);
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    padding: 5px 12px;
+    border-radius: 20px;
+    margin-bottom: 16px;
+  }
+
+  .result-card h3 {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 24px;
+    font-weight: 600;
+    margin-bottom: 8px;
+  }
+
+  .result-card .why {
+    font-size: 14px;
+    line-height: 1.6;
+    color: #555;
+    margin-bottom: 20px;
+  }
+
+  .prompt-box {
+    background: var(--cream);
+    border-radius: 10px;
+    padding: 16px;
+    margin-bottom: 16px;
+  }
+
+  .prompt-box .prompt-label {
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    color: var(--champagne);
+    margin-bottom: 10px;
+  }
+
+  .prompt-box .prompt-text {
+    font-family: 'DM Mono', monospace;
+    font-size: 13px;
+    line-height: 1.6;
+    color: var(--ink);
+  }
+
+  .copy-btn {
+    width: 100%;
+    background: var(--ink);
+    color: var(--white);
+    border: none;
+    border-radius: 10px;
+    padding: 14px;
+    font-family: 'DM Sans', sans-serif;
+    font-size: 14px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.2s ease;
+  }
+
+  .copy-btn:hover { opacity: 0.85; }
+  .copy-btn.copied { background: var(--champagne); }
+
+  /* Secondary recommendation */
+  .next-up {
+    background: var(--glow);
+    border-radius: 12px;
+    padding: 20px;
+    margin-bottom: 24px;
+  }
+
+  .next-up .next-label {
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    color: var(--champagne);
+    margin-bottom: 8px;
+  }
+
+  .next-up h4 {
+    font-size: 16px;
+    font-weight: 600;
+    margin-bottom: 4px;
+  }
+
+  .next-up p {
+    font-size: 13px;
+    color: #666;
+    line-height: 1.5;
+  }
+
+  /* Retake + footer */
+  .retake-btn {
+    background: none;
+    border: 1.5px solid var(--ink);
+    border-radius: 10px;
+    padding: 12px;
+    font-family: 'DM Sans', sans-serif;
+    font-size: 14px;
+    font-weight: 600;
+    cursor: pointer;
+    width: 100%;
+    margin-bottom: 24px;
+    transition: all 0.2s ease;
+  }
+
+  .retake-btn:hover { background: var(--ink); color: var(--white); }
+
+  .footer {
+    text-align: center;
+    padding: 20px 0 32px;
+    border-top: 1px solid var(--glow);
+    margin-top: auto;
+  }
+
+  .footer .brand-footer {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 16px;
+    font-weight: 600;
+    color: var(--ink);
+    margin-bottom: 4px;
+  }
+
+  .footer .tagline {
+    font-size: 12px;
+    color: #999;
+  }
+
+  .footer a {
+    color: var(--champagne);
+    text-decoration: none;
+    font-size: 13px;
+    font-weight: 500;
+  }
+
+  .footer a:hover { text-decoration: underline; }
+</style>
+</head>
+<body>
+
+<div class="container">
+  <div class="header">
+    <div class="brand">Prompted by Nupoor</div>
+    <h1>Find Your AI App</h1>
+    <p>Answer 3 quick questions. Get a personalized tool recommendation and your first prompt to try.</p>
+  </div>
+
+  <!-- Progress -->
+  <div class="progress-wrap" id="progressWrap">
+    <div class="progress-bar"><div class="progress-fill" id="progressFill" style="width: 0%"></div></div>
+    <div class="progress-label" id="progressLabel">Question 1 of 3</div>
+  </div>
+
+  <!-- Q1 -->
+  <div class="screen active" id="q1">
+    <div class="question-label">What do you most want AI to help with?</div>
+    <div class="options">
+      <div class="option" onclick="select(1, 'research')">
+        <div class="option-icon"><span>&#128269;</span></div>
+        <div class="option-text">
+          <h3>Research something</h3>
+          <p>Find answers, compare options, dig into a topic</p>
+        </div>
+      </div>
+      <div class="option" onclick="select(1, 'writing')">
+        <div class="option-icon"><span>&#9997;</span></div>
+        <div class="option-text">
+          <h3>Write something</h3>
+          <p>Emails, captions, cover letters, content</p>
+        </div>
+      </div>
+      <div class="option" onclick="select(1, 'planning')">
+        <div class="option-icon"><span>&#128197;</span></div>
+        <div class="option-text">
+          <h3>Plan or organize</h3>
+          <p>Weekly plans, trip itineraries, project breakdowns</p>
+        </div>
+      </div>
+      <div class="option" onclick="select(1, 'design')">
+        <div class="option-icon"><span>&#127912;</span></div>
+        <div class="option-text">
+          <h3>Make something look good</h3>
+          <p>Presentations, social posts, visual content</p>
+        </div>
+      </div>
+      <div class="option" onclick="select(1, 'answers')">
+        <div class="option-icon"><span>&#128172;</span></div>
+        <div class="option-text">
+          <h3>Get quick answers</h3>
+          <p>Explain something, settle a debate, understand a concept</p>
+        </div>
+      </div>
+      <div class="option" onclick="select(1, 'unsure')">
+        <div class="option-icon"><span>&#10024;</span></div>
+        <div class="option-text">
+          <h3>I don't know yet</h3>
+          <p>I just want to try AI and see what it can do</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Q2 -->
+  <div class="screen" id="q2">
+    <div class="question-label">Which of these do you already use every day?</div>
+    <div class="options">
+      <div class="option" onclick="select(2, 'google')">
+        <div class="option-icon"><span>&#128231;</span></div>
+        <div class="option-text">
+          <h3>Google apps</h3>
+          <p>Gmail, Google Docs, Google Calendar</p>
+        </div>
+      </div>
+      <div class="option" onclick="select(2, 'microsoft')">
+        <div class="option-icon"><span>&#128187;</span></div>
+        <div class="option-text">
+          <h3>Microsoft apps</h3>
+          <p>Outlook, Word, Excel, Teams</p>
+        </div>
+      </div>
+      <div class="option" onclick="select(2, 'canva')">
+        <div class="option-icon"><span>&#127912;</span></div>
+        <div class="option-text">
+          <h3>Canva</h3>
+          <p>Already use it for design and content</p>
+        </div>
+      </div>
+      <div class="option" onclick="select(2, 'phone')">
+        <div class="option-icon"><span>&#128241;</span></div>
+        <div class="option-text">
+          <h3>Mostly my phone</h3>
+          <p>Notes, messages, social media, that's about it</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Q3 -->
+  <div class="screen" id="q3">
+    <div class="question-label">How do you like to learn something new?</div>
+    <div class="options">
+      <div class="option" onclick="select(3, 'one-thing')">
+        <div class="option-icon"><span>&#127919;</span></div>
+        <div class="option-text">
+          <h3>Just show me one thing to try</h3>
+          <p>Keep it simple, I'll explore from there</p>
+        </div>
+      </div>
+      <div class="option" onclick="select(3, 'full-picture')">
+        <div class="option-icon"><span>&#128506;</span></div>
+        <div class="option-text">
+          <h3>Give me the full picture</h3>
+          <p>I want to understand the landscape first</p>
+        </div>
+      </div>
+      <div class="option" onclick="select(3, 'explore')">
+        <div class="option-icon"><span>&#129488;</span></div>
+        <div class="option-text">
+          <h3>Let me poke around on my own</h3>
+          <p>Point me in a direction and I'll figure it out</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Result -->
+  <div class="result-screen" id="resultScreen">
+    <div class="result-header">
+      <div class="eyebrow">Your result</div>
+      <h2 id="resultTitle">Your #1 AI App</h2>
+    </div>
+
+    <div class="result-card">
+      <div class="tool-badge" id="toolBadge">Start here</div>
+      <h3 id="toolName">Tool Name</h3>
+      <div class="why" id="toolWhy">Why this tool is right for you.</div>
+
+      <div class="prompt-box">
+        <div class="prompt-label">Your first prompt. Copy and paste it.</div>
+        <div class="prompt-text" id="promptText">Prompt goes here</div>
+      </div>
+
+      <button class="copy-btn" id="copyBtn" onclick="copyPrompt()">Copy prompt</button>
+    </div>
+
+    <div class="next-up" id="nextUp">
+      <div class="next-label">Try next</div>
+      <h4 id="nextTool">Next Tool</h4>
+      <p id="nextWhy">Why to try this next.</p>
+    </div>
+
+    <button class="retake-btn" onclick="retake()">Retake the quiz</button>
+  </div>
+
+  <div class="footer">
+    <div class="brand-footer">Prompted by Nupoor</div>
+    <div class="tagline">AI made simple for women who don't code.</div>
+    <br>
+    <a href="https://instagram.com/promptedbynupoor">@promptedbynupoor</a>
+    &nbsp;&middot;&nbsp;
+    <a href="https://promptedbynupoor.substack.com">Newsletter</a>
+  </div>
+</div>
+
+<script>
+const answers = {};
+
+const tools = {
+  chatgpt: {
+    name: "ChatGPT",
+    badge: "Start here",
+    prompts: {
+      research: "I'm trying to decide between two options for [your situation]. Can you walk me through the pros and cons of each like you're helping a friend think it through? Here are the two options: [option A] and [option B].",
+      writing: "I need to write a [type of content, e.g. email to my boss, Instagram caption, cover letter]. Here's the context: [give details]. Write it in a warm, professional tone. Keep it under [length].",
+      planning: "I have a busy week ahead. Here's everything on my plate: [list everything]. Help me organize this into a realistic daily plan, Monday through Friday. Flag anything that should be a priority.",
+      design: "I need ideas for a [type of visual, e.g. Instagram post, presentation slide]. The topic is [topic]. Give me 5 creative concepts with a short description of what each one would look like.",
+      answers: "Explain [concept] to me like I'm smart but have never heard this term before. Use an everyday analogy. Keep it under 100 words.",
+      unsure: "I've never used AI before. Give me 3 simple things I can try right now that will save me time this week. Keep each one to 2 sentences."
+    }
+  },
+  claude: {
+    name: "Claude",
+    badge: "Start here",
+    prompts: {
+      research: "I need to understand [topic]. Break it down for me: what it is, why it matters, and what I should actually do about it. Write it like you're explaining it to a smart friend over coffee.",
+      writing: "Help me write a [type of content]. Here's my rough thinking: [brain dump your thoughts]. Turn this into something polished. Match my tone, which is [describe your tone, e.g. warm and direct]. Keep it to [length].",
+      planning: "I'm trying to figure out [goal or project]. Here's what I know so far: [context]. Help me think through this step by step. What should I do first, what can wait, and what am I probably overthinking?",
+      design: "I need to create a [type of content] about [topic]. I don't have a designer. Walk me through exactly what to include, how to structure it, and give me the copy for each section so I can drop it into Canva.",
+      answers: "I keep hearing about [concept] but I don't fully get it. Explain it to me clearly. Then give me a real example of how it shows up in everyday life. No jargon.",
+      unsure: "I'm new to AI and I want to start using it in my daily life. Ask me 5 questions about how I spend my time, then suggest 3 specific ways AI could help me based on my answers."
+    }
+  },
+  perplexity: {
+    name: "Perplexity",
+    badge: "Start here",
+    prompts: {
+      research: "What are the best [thing you're researching] in [your city/area] based on recent reviews? I'm looking for [specific criteria]. Give me the top 5 with a one-line summary of why each one made the list.",
+      writing: "Find me 5 recent articles or studies about [topic]. Summarize each one in 2 sentences. I need this for [context, e.g. a presentation, a blog post, a decision I'm making].",
+      planning: "I'm planning [trip/event/project] for [dates]. Research the best options for [what you need]. Compare at least 3 options with pricing, pros, and cons.",
+      answers: "What's the latest on [topic]? Give me a summary of what's happening right now, with sources I can check."
+    }
+  },
+  gemini: {
+    name: "Gemini",
+    badge: "Start here",
+    prompts: {
+      research: "Search my recent emails for anything related to [topic] and summarize what I need to know. Then draft a response to the most recent one.",
+      writing: "Help me draft a reply to this email: [paste email or describe it]. Keep my tone [professional/casual/friendly]. Make it concise.",
+      planning: "Look at my calendar for this week and help me find 2 hours I can block for [task]. Then suggest how to use that time most effectively.",
+      answers: "Summarize this document for me: [paste or describe]. Pull out the 3 most important points I need to remember."
+    }
+  },
+  canva: {
+    name: "Canva AI",
+    badge: "Start here",
+    prompts: {
+      design: "Create a [type of design, e.g. Instagram post, presentation] about [topic]. Use a clean, modern style with [color preference]. Include the text: [your text]."
+    }
+  }
+};
+
+// Recommendation logic
+function getRecommendation(a) {
+  const goal = a[1];
+  const ecosystem = a[2];
+  const style = a[3];
+
+  let primary, secondary;
+
+  // Design path
+  if (goal === 'design') {
+    primary = 'canva';
+    secondary = ecosystem === 'google' ? 'gemini' : 'chatgpt';
+    return { primary, secondary,
+      why: "You want to make things look good. Canva AI lets you describe what you need and it builds the design for you. No design skills required. Just tell it what you want.",
+      nextWhy: secondary === 'gemini'
+        ? "Since you live in Google, Gemini can help you write the copy and plan the content before you design it."
+        : "ChatGPT is great for brainstorming design concepts and writing the copy that goes into your designs."
+    };
+  }
+
+  // Research path
+  if (goal === 'research') {
+    primary = 'perplexity';
+    secondary = ecosystem === 'google' ? 'gemini' : 'claude';
+    return { primary, secondary,
+      why: "You want to find real answers with real sources. Perplexity is built for research. It searches the internet in real time and gives you sourced answers, not just opinions. Think of it as Google search that actually reads the results for you.",
+      nextWhy: secondary === 'gemini'
+        ? "Gemini is built into your Google apps. Great for researching things that are already in your emails, docs, and calendar."
+        : "Claude is excellent for taking your research and turning it into something organized. Use it to think through what you found."
+    };
+  }
+
+  // Writing path
+  if (goal === 'writing') {
+    primary = 'claude';
+    secondary = ecosystem === 'google' ? 'gemini' : 'chatgpt';
+    return { primary, secondary,
+      why: "You want to write something. Claude is the best writing partner in AI right now. It keeps your voice, handles long pieces without losing the thread, and actually thinks about structure. Give it a brain dump and it gives back something polished.",
+      nextWhy: secondary === 'gemini'
+        ? "Gemini can draft quick replies right inside Gmail. Perfect for emails you don't want to overthink."
+        : "ChatGPT is great for quick one-off writing. A caption, a text, a short email. Faster for the small stuff."
+    };
+  }
+
+  // Planning path
+  if (goal === 'planning') {
+    primary = 'claude';
+    secondary = ecosystem === 'google' ? 'gemini' : 'chatgpt';
+    return { primary, secondary,
+      why: "You want to plan and organize. Claude is the strongest thinker in the AI lineup. It breaks big messy projects into clear steps, helps you prioritize, and doesn't just give you a list. It actually thinks through your situation.",
+      nextWhy: secondary === 'gemini'
+        ? "Gemini lives inside Google Calendar and Gmail. Once you've got your plan, Gemini helps you schedule it and keep track."
+        : "ChatGPT is great for quick brainstorming when you just need ideas fast, before you sit down to plan."
+    };
+  }
+
+  // Quick answers path
+  if (goal === 'answers') {
+    primary = 'chatgpt';
+    secondary = 'perplexity';
+    return { primary, secondary,
+      why: "You want fast, clear answers. ChatGPT is the quickest AI for everyday questions. It explains things simply, settles debates, and gives you the answer without making you read 10 articles first.",
+      nextWhy: "Perplexity is your upgrade when you need answers backed by real, current sources. Think of it as ChatGPT plus receipts."
+    };
+  }
+
+  // Unsure / explore path
+  if (goal === 'unsure') {
+    if (style === 'one-thing') {
+      primary = 'chatgpt';
+      secondary = 'claude';
+      return { primary, secondary,
+        why: "You're just getting started, and you like to keep it simple. ChatGPT is the easiest entry point. Download it, type one question, and see what happens. It's free, it's on your phone, and it works for almost anything.",
+        nextWhy: "Once you're comfortable, try Claude for anything that needs more thought. Planning, writing, organizing. It goes deeper."
+      };
+    }
+    if (ecosystem === 'google') {
+      primary = 'gemini';
+      secondary = 'chatgpt';
+      return { primary, secondary,
+        why: "You're not sure where to start, and you already live in Google. Good news: you might already have AI. Gemini is built into Gmail, Docs, and Search. You don't need to download anything. Just start using what's already there.",
+        nextWhy: "ChatGPT is the most versatile AI app. Once you've tried Gemini inside Google, download ChatGPT for everything else."
+      };
+    }
+    primary = 'chatgpt';
+    secondary = 'perplexity';
+    return { primary, secondary,
+      why: "You're curious but not sure where to start. That's the perfect place to be. ChatGPT is the most well-rounded AI app. You can ask it anything: questions, writing help, planning, ideas. Download it and just start a conversation.",
+      nextWhy: "Perplexity is great for when you want real answers with sources. Think of it as your research upgrade."
+    };
+  }
+
+  // Default fallback
+  primary = 'chatgpt';
+  secondary = 'claude';
+  return { primary, secondary,
+    why: "ChatGPT is the most versatile starting point. It handles nearly everything well and it's the easiest to get started with.",
+    nextWhy: "Claude goes deeper on writing, planning, and thinking. Try it when you need more than a quick answer."
+  };
+}
+
+function select(question, answer) {
+  answers[question] = answer;
+
+  // Visual selection
+  const screen = document.getElementById('q' + question);
+  screen.querySelectorAll('.option').forEach(o => o.classList.remove('selected'));
+  event.currentTarget.classList.add('selected');
+
+  // Auto-advance after short delay
+  setTimeout(() => {
+    if (question < 3) {
+      screen.classList.remove('active');
+      document.getElementById('q' + (question + 1)).classList.add('active');
+      const pct = (question / 3) * 100;
+      document.getElementById('progressFill').style.width = pct + '%';
+      document.getElementById('progressLabel').textContent = 'Question ' + (question + 1) + ' of 3';
+    } else {
+      showResult();
+    }
+  }, 300);
+}
+
+function showResult() {
+  // Hide everything
+  document.querySelectorAll('.screen').forEach(s => s.classList.remove('active'));
+  document.getElementById('progressWrap').style.display = 'none';
+
+  const rec = getRecommendation(answers);
+  const tool = tools[rec.primary];
+  const next = tools[rec.secondary];
+
+  // Get appropriate prompt
+  const goal = answers[1];
+  let prompt = tool.prompts[goal] || tool.prompts[Object.keys(tool.prompts)[0]];
+
+  document.getElementById('resultTitle').textContent = 'Start with ' + tool.name;
+  document.getElementById('toolBadge').textContent = 'Your #1 app';
+  document.getElementById('toolName').textContent = tool.name;
+  document.getElementById('toolWhy').textContent = rec.why;
+  document.getElementById('promptText').textContent = prompt;
+  document.getElementById('nextTool').textContent = next.name;
+  document.getElementById('nextWhy').textContent = rec.nextWhy;
+
+  document.getElementById('resultScreen').classList.add('active');
+
+  // Track progress bar to 100%
+  document.getElementById('progressFill').style.width = '100%';
+}
+
+function copyPrompt() {
+  const text = document.getElementById('promptText').textContent;
+  navigator.clipboard.writeText(text).then(() => {
+    const btn = document.getElementById('copyBtn');
+    btn.textContent = 'Copied!';
+    btn.classList.add('copied');
+    setTimeout(() => {
+      btn.textContent = 'Copy prompt';
+      btn.classList.remove('copied');
+    }, 2000);
+  });
+}
+
+function retake() {
+  // Reset
+  Object.keys(answers).forEach(k => delete answers[k]);
+  document.querySelectorAll('.option').forEach(o => o.classList.remove('selected'));
+  document.getElementById('resultScreen').classList.remove('active');
+  document.getElementById('progressWrap').style.display = 'block';
+  document.getElementById('progressFill').style.width = '0%';
+  document.getElementById('progressLabel').textContent = 'Question 1 of 3';
+  document.getElementById('q1').classList.add('active');
+}
+</script>
+
+</body>
+</html>
