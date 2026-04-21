@@ -2,12 +2,1217 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8" />
-<meta http-equiv="refresh" content="0; url=/resources" />
-<link rel="canonical" href="https://promptedbynupoor.com/resources" />
-<title>Redirecting&hellip;</title>
-<script>window.location.replace("/resources");</script>
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>The Prompt Library &middot; Prompted by Nupoor</title>
+<meta name="description" content="Thirty plug-and-play prompts for productivity, finance, coaching, planning, writing, and learning. Built on the 4-line framework, copy-paste ready." />
+<meta property="og:title" content="The Prompt Library &middot; Prompted by Nupoor" />
+<meta property="og:description" content="Thirty plug-and-play prompts for real life. Built on the 4-line framework." />
+<meta property="og:type" content="website" />
+<meta property="og:url" content="https://promptedbynupoor.com/prompts" />
+<link rel="canonical" href="https://promptedbynupoor.com/prompts" />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600;700&family=DM+Mono:wght@400;500&family=DM+Sans:wght@400;500;600&display=swap" rel="stylesheet" />
+<style>
+  :root {
+    --ink: #1A1A1A;
+    --champagne: #C4956A;
+    --champagne-dark: #A87A50;
+    --glow: #F0E5D8;
+    --cream: #FAF8F4;
+    --white: #FFFFFF;
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  html { -webkit-font-smoothing: antialiased; -moz-osx-font-smoothing: grayscale; scroll-behavior: smooth; }
+  body {
+    font-family: 'DM Sans', system-ui, sans-serif;
+    background: var(--cream);
+    color: var(--ink);
+    line-height: 1.55;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 32px 20px 48px;
+  }
+  .wrap {
+    width: 100%;
+    max-width: 760px;
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+  }
+  .back {
+    font-family: 'DM Mono', monospace;
+    font-size: 11px;
+    text-transform: uppercase;
+    letter-spacing: 1.3px;
+    color: var(--ink);
+    opacity: 0.55;
+    text-decoration: none;
+    display: inline-block;
+    margin-bottom: 40px;
+    transition: opacity 0.15s ease, color 0.15s ease;
+  }
+  .back:hover { opacity: 1; color: var(--champagne); }
+
+  /* HERO */
+  .page-label {
+    font-family: 'DM Mono', monospace;
+    font-size: 11px;
+    text-transform: uppercase;
+    letter-spacing: 1.4px;
+    color: var(--champagne);
+    margin-bottom: 14px;
+    font-weight: 500;
+  }
+  h1 {
+    font-family: 'Cormorant Garamond', serif;
+    font-weight: 600;
+    font-size: 52px;
+    letter-spacing: -0.015em;
+    line-height: 1.05;
+    margin-bottom: 18px;
+    max-width: 640px;
+  }
+  .lede {
+    font-size: 18px;
+    color: var(--ink);
+    opacity: 0.78;
+    margin-bottom: 48px;
+    max-width: 560px;
+  }
+
+  /* FRAMEWORK EXPLAINER */
+  .framework {
+    background: var(--white);
+    border: 1px solid rgba(26, 26, 26, 0.08);
+    border-radius: 16px;
+    padding: 28px 28px 24px;
+    margin-bottom: 48px;
+  }
+  .framework .eyebrow {
+    font-family: 'DM Mono', monospace;
+    font-size: 11px;
+    text-transform: uppercase;
+    letter-spacing: 1.3px;
+    color: var(--champagne);
+    margin-bottom: 10px;
+    font-weight: 500;
+  }
+  .framework h2 {
+    font-family: 'Cormorant Garamond', serif;
+    font-weight: 600;
+    font-size: 28px;
+    line-height: 1.2;
+    margin-bottom: 10px;
+  }
+  .framework .intro {
+    font-size: 15px;
+    opacity: 0.78;
+    margin-bottom: 20px;
+  }
+  .lines {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 10px;
+  }
+  @media (min-width: 640px) {
+    .lines { grid-template-columns: 1fr 1fr; }
+  }
+  .line {
+    background: var(--cream);
+    border-radius: 10px;
+    padding: 14px 16px;
+  }
+  .line .num {
+    font-family: 'DM Mono', monospace;
+    font-size: 10px;
+    text-transform: uppercase;
+    letter-spacing: 1.3px;
+    color: var(--champagne);
+    font-weight: 500;
+    margin-bottom: 4px;
+    display: block;
+  }
+  .line .name {
+    font-weight: 600;
+    font-size: 15px;
+    margin-bottom: 2px;
+  }
+  .line .desc {
+    font-size: 13.5px;
+    opacity: 0.72;
+    line-height: 1.45;
+  }
+
+  /* SAFETY NOTE */
+  .safety-note {
+    background: var(--glow);
+    border-left: 3px solid var(--champagne);
+    border-radius: 10px;
+    padding: 22px 24px;
+    margin-bottom: 48px;
+    display: flex;
+    gap: 16px;
+    align-items: flex-start;
+  }
+  .safety-note .safety-icon {
+    font-family: 'Cormorant Garamond', serif;
+    font-weight: 600;
+    font-size: 32px;
+    line-height: 1;
+    color: var(--champagne);
+    flex-shrink: 0;
+    padding-top: 2px;
+  }
+  .safety-note .safety-body { flex: 1; }
+  .safety-note .safety-label {
+    font-family: 'DM Mono', monospace;
+    font-size: 10px;
+    text-transform: uppercase;
+    letter-spacing: 1.3px;
+    color: var(--champagne);
+    font-weight: 500;
+    margin-bottom: 8px;
+    display: block;
+  }
+  .safety-note .safety-title {
+    font-family: 'Cormorant Garamond', serif;
+    font-weight: 600;
+    font-size: 22px;
+    line-height: 1.2;
+    margin-bottom: 8px;
+  }
+  .safety-note p {
+    font-size: 14.5px;
+    line-height: 1.55;
+    opacity: 0.82;
+    margin-bottom: 8px;
+  }
+  .safety-note p:last-child { margin-bottom: 0; }
+  @media (max-width: 560px) {
+    .safety-note { padding: 20px; gap: 12px; }
+    .safety-note .safety-icon { font-size: 26px; }
+    .safety-note .safety-title { font-size: 19px; }
+  }
+
+  /* CATEGORY TABS */
+  .tabs {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin-bottom: 28px;
+    position: sticky;
+    top: 0;
+    padding: 16px 0;
+    background: var(--cream);
+    z-index: 10;
+    border-bottom: 1px solid rgba(26, 26, 26, 0.06);
+  }
+  .tab {
+    font-family: 'DM Sans', sans-serif;
+    font-size: 14px;
+    font-weight: 500;
+    padding: 10px 18px;
+    border: 1px solid rgba(26, 26, 26, 0.12);
+    border-radius: 999px;
+    background: var(--white);
+    color: var(--ink);
+    cursor: pointer;
+    transition: all 0.15s ease;
+    letter-spacing: 0.01em;
+  }
+  .tab:hover {
+    border-color: var(--champagne);
+    color: var(--champagne);
+  }
+  .tab.active {
+    background: var(--ink);
+    color: var(--white);
+    border-color: var(--ink);
+  }
+  .tab-count {
+    font-family: 'DM Mono', monospace;
+    font-size: 10px;
+    opacity: 0.6;
+    margin-left: 6px;
+  }
+  .tab.active .tab-count { opacity: 0.7; }
+
+  /* PROMPT CARDS */
+  .category { display: none; }
+  .category.active { display: block; }
+  .category-header {
+    margin-bottom: 24px;
+  }
+  .category-header h2 {
+    font-family: 'Cormorant Garamond', serif;
+    font-weight: 600;
+    font-size: 32px;
+    margin-bottom: 6px;
+    letter-spacing: -0.01em;
+  }
+  .category-header p {
+    font-size: 15px;
+    opacity: 0.72;
+    max-width: 540px;
+  }
+  .prompt-list {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    margin-bottom: 40px;
+  }
+  .prompt {
+    background: var(--white);
+    border: 1px solid rgba(26, 26, 26, 0.08);
+    border-radius: 14px;
+    overflow: hidden;
+    transition: border-color 0.15s ease, box-shadow 0.15s ease;
+  }
+  .prompt:hover { border-color: var(--champagne); }
+  .prompt[open] {
+    border-color: var(--champagne);
+    box-shadow: 0 8px 28px rgba(196, 149, 106, 0.1);
+  }
+  .prompt summary {
+    list-style: none;
+    cursor: pointer;
+    padding: 22px 24px;
+    display: flex;
+    align-items: flex-start;
+    gap: 16px;
+  }
+  .prompt summary::-webkit-details-marker { display: none; }
+  .prompt .num {
+    font-family: 'DM Mono', monospace;
+    font-size: 11px;
+    color: var(--champagne);
+    font-weight: 500;
+    letter-spacing: 1.2px;
+    padding-top: 4px;
+    min-width: 24px;
+  }
+  .prompt .summary-content {
+    flex: 1;
+  }
+  .prompt .prompt-title {
+    font-family: 'Cormorant Garamond', serif;
+    font-weight: 600;
+    font-size: 22px;
+    letter-spacing: -0.005em;
+    margin-bottom: 4px;
+    line-height: 1.2;
+  }
+  .prompt .scenario {
+    font-size: 14px;
+    opacity: 0.72;
+  }
+  .prompt .chevron {
+    align-self: center;
+    font-size: 18px;
+    color: var(--champagne);
+    transition: transform 0.2s ease;
+  }
+  .prompt[open] .chevron { transform: rotate(180deg); }
+
+  .prompt-body {
+    padding: 0 24px 24px;
+  }
+  .prompt-block {
+    background: var(--cream);
+    border-radius: 10px;
+    padding: 18px 20px;
+    margin-bottom: 16px;
+    position: relative;
+  }
+  .prompt-block .block-label {
+    font-family: 'DM Mono', monospace;
+    font-size: 10px;
+    text-transform: uppercase;
+    letter-spacing: 1.3px;
+    color: var(--champagne);
+    font-weight: 500;
+    margin-bottom: 12px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  .copy-btn {
+    font-family: 'DM Mono', monospace;
+    font-size: 10px;
+    text-transform: uppercase;
+    letter-spacing: 1.2px;
+    padding: 6px 12px;
+    border: 1px solid var(--champagne);
+    border-radius: 999px;
+    background: transparent;
+    color: var(--champagne);
+    cursor: pointer;
+    transition: all 0.15s ease;
+    font-weight: 500;
+  }
+  .copy-btn:hover {
+    background: var(--champagne);
+    color: var(--white);
+  }
+  .copy-btn.copied {
+    background: var(--ink);
+    color: var(--champagne);
+    border-color: var(--ink);
+  }
+  .prompt-text {
+    font-family: 'DM Mono', monospace;
+    font-size: 13px;
+    line-height: 1.7;
+    color: var(--ink);
+    white-space: pre-wrap;
+    word-break: break-word;
+  }
+  .prompt-text .part {
+    display: block;
+    margin-bottom: 10px;
+  }
+  .prompt-text .part:last-child { margin-bottom: 0; }
+  .prompt-text .part-label {
+    color: var(--champagne);
+    font-weight: 500;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    font-size: 11px;
+  }
+  .tweak {
+    display: flex;
+    gap: 12px;
+    font-size: 14px;
+    opacity: 0.82;
+    padding: 4px 2px 0;
+  }
+  .tweak .tweak-label {
+    font-family: 'DM Mono', monospace;
+    font-size: 10px;
+    text-transform: uppercase;
+    letter-spacing: 1.3px;
+    color: var(--champagne);
+    font-weight: 500;
+    flex-shrink: 0;
+    padding-top: 2px;
+  }
+
+  /* NEWSLETTER CTA */
+  .newsletter-card {
+    background: var(--ink);
+    color: var(--white);
+    border-radius: 16px;
+    padding: 36px 32px;
+    margin: 48px 0;
+    text-align: center;
+  }
+  .newsletter-card .eyebrow {
+    font-family: 'DM Mono', monospace;
+    font-size: 11px;
+    text-transform: uppercase;
+    letter-spacing: 1.4px;
+    color: var(--champagne);
+    margin-bottom: 12px;
+    font-weight: 500;
+  }
+  .newsletter-card h2 {
+    font-family: 'Cormorant Garamond', serif;
+    font-weight: 600;
+    font-size: 30px;
+    margin-bottom: 10px;
+    line-height: 1.15;
+  }
+  .newsletter-card p {
+    font-size: 15px;
+    opacity: 0.78;
+    margin-bottom: 22px;
+    max-width: 460px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+  .newsletter-card .cta {
+    display: inline-block;
+    background: var(--champagne);
+    color: var(--ink);
+    text-decoration: none;
+    padding: 14px 26px;
+    border-radius: 10px;
+    font-weight: 600;
+    font-size: 15px;
+    transition: all 0.15s ease;
+  }
+  .newsletter-card .cta:hover {
+    background: var(--white);
+    transform: translateY(-1px);
+    box-shadow: 0 8px 24px rgba(196, 149, 106, 0.35);
+  }
+
+  /* SIGNOFF */
+  .signoff {
+    font-family: 'Cormorant Garamond', serif;
+    font-style: italic;
+    font-size: 20px;
+    color: var(--ink);
+    opacity: 0.78;
+    text-align: center;
+    max-width: 520px;
+    margin: 40px auto 32px;
+    line-height: 1.4;
+  }
+
+  footer {
+    margin-top: auto;
+    padding-top: 40px;
+    font-family: 'DM Mono', monospace;
+    font-size: 11px;
+    text-transform: uppercase;
+    letter-spacing: 1.3px;
+    opacity: 0.45;
+    text-align: center;
+  }
+  footer a { color: inherit; text-decoration: none; }
+  footer a:hover { color: var(--champagne); opacity: 1; }
+
+  @media (max-width: 560px) {
+    h1 { font-size: 38px; }
+    .lede { font-size: 16px; }
+    .framework, .prompt-body { padding-left: 20px; padding-right: 20px; }
+    .prompt summary { padding: 20px; gap: 12px; }
+    .prompt .prompt-title { font-size: 19px; }
+    .newsletter-card { padding: 28px 22px; }
+    .newsletter-card h2 { font-size: 25px; }
+    .tab { padding: 8px 14px; font-size: 13px; }
+  }
+</style>
 </head>
 <body>
-<p>Redirecting to <a href="/resources">the Free Library</a>&hellip;</p>
+  <main class="wrap">
+    <a class="back" href="/">&larr; Back</a>
+
+    <div class="page-label">The Prompt Library</div>
+    <h1>Thirty prompts you can actually use today.</h1>
+    <p class="lede">No copy-paste dumps. No "you are an expert in...". Every prompt here is built on the same 4-line framework, so you can rewrite them for your own life by the end of the hour.</p>
+
+    <section class="framework" aria-label="The 4-line framework">
+      <div class="eyebrow">The framework</div>
+      <h2>Think of a prompt like a recipe.</h2>
+      <p class="intro">Four ingredients, every time. Miss one and the output tastes off. Hit all four and AI gives you something you can use.</p>
+      <div class="lines">
+        <div class="line">
+          <span class="num">Line 1</span>
+          <div class="name">Role</div>
+          <div class="desc">Who the AI is pretending to be. A career coach, a non-judgmental planner, a sharp chief of staff.</div>
+        </div>
+        <div class="line">
+          <span class="num">Line 2</span>
+          <div class="name">Context</div>
+          <div class="desc">Your actual situation. The numbers, the constraints, the feeling. The more specific, the better.</div>
+        </div>
+        <div class="line">
+          <span class="num">Line 3</span>
+          <div class="name">Task</div>
+          <div class="desc">What you want done. One clear job, not six. Say what "done" looks like.</div>
+        </div>
+        <div class="line">
+          <span class="num">Line 4</span>
+          <div class="name">Format</div>
+          <div class="desc">How you want it back. A table, three bullets, a short email, a script you can read out loud.</div>
+        </div>
+      </div>
+    </section>
+
+    <aside class="safety-note" aria-label="Privacy note">
+      <div class="safety-icon">!</div>
+      <div class="safety-body">
+        <span class="safety-label">Before you paste</span>
+        <div class="safety-title">Share what you're comfortable with. Not more.</div>
+        <p>AI tools are useful. They are not private diaries. Anything you paste into ChatGPT, Claude, or any other tool can be stored, reviewed, or used to train future models depending on your settings.</p>
+        <p>Skip the sensitive stuff. Real names in hard conversations. Account numbers. Your exact salary. Medical specifics. The colleague's name in the feedback draft. Use initials, round numbers, or just describe the situation. The prompts still work. Your life stays yours.</p>
+      </div>
+    </aside>
+
+    <nav class="tabs" aria-label="Categories" role="tablist">
+      <button class="tab active" data-cat="productivity" role="tab" aria-selected="true">Productivity <span class="tab-count">5</span></button>
+      <button class="tab" data-cat="finance" role="tab" aria-selected="false">Finance <span class="tab-count">5</span></button>
+      <button class="tab" data-cat="coaching" role="tab" aria-selected="false">Coaching <span class="tab-count">5</span></button>
+      <button class="tab" data-cat="planning" role="tab" aria-selected="false">Planning <span class="tab-count">5</span></button>
+      <button class="tab" data-cat="writing" role="tab" aria-selected="false">Writing <span class="tab-count">5</span></button>
+      <button class="tab" data-cat="learning" role="tab" aria-selected="false">Learning <span class="tab-count">5</span></button>
+    </nav>
+
+    <!-- PRODUCTIVITY -->
+    <section class="category active" id="productivity" role="tabpanel">
+      <div class="category-header">
+        <h2>Productivity</h2>
+        <p>For the Sunday-night panic, the 200-email inbox, and the to-do list that never shrinks.</p>
+      </div>
+      <div class="prompt-list">
+
+        <details class="prompt">
+          <summary>
+            <span class="num">01</span>
+            <div class="summary-content">
+              <div class="prompt-title">The Sunday Reset</div>
+              <div class="scenario">Sunday evening. The week ahead feels like a wall.</div>
+            </div>
+            <span class="chevron">&#9662;</span>
+          </summary>
+          <div class="prompt-body">
+            <div class="prompt-block">
+              <div class="block-label"><span>The prompt</span><button class="copy-btn" data-copy="prod-1">Copy</button></div>
+              <div class="prompt-text" id="prod-1"><span class="part"><span class="part-label">Role:</span> You are a calm, structured thinking partner who helps women plan their week without adding pressure.</span><span class="part"><span class="part-label">Context:</span> I am [your job or caregiving role or current life situation]. My top three priorities this week are [list three]. I have about [X] hours of meetings already scheduled. I feel [energy level: drained, fresh, somewhere in between].</span><span class="part"><span class="part-label">Task:</span> Help me map Monday through Friday. Suggest which day each priority should go on. Flag which priority I should protect most and which one I could move if something goes sideways. Keep the plan flexible.</span><span class="part"><span class="part-label">Format:</span> A simple Monday to Friday outline. One line per day. Finish with one sentence on what to protect.</span></div>
+            </div>
+            <div class="tweak"><div class="tweak-label">Tweak</div><div>Swap Monday to Friday for Tuesday to Saturday if that is your actual rhythm.</div></div>
+          </div>
+        </details>
+
+        <details class="prompt">
+          <summary>
+            <span class="num">02</span>
+            <div class="summary-content">
+              <div class="prompt-title">The Inbox Avalanche</div>
+              <div class="scenario">Two hundred unread emails. Full paralysis.</div>
+            </div>
+            <span class="chevron">&#9662;</span>
+          </summary>
+          <div class="prompt-body">
+            <div class="prompt-block">
+              <div class="block-label"><span>The prompt</span><button class="copy-btn" data-copy="prod-2">Copy</button></div>
+              <div class="prompt-text" id="prod-2"><span class="part"><span class="part-label">Role:</span> You are an executive assistant who triages inboxes without judgment.</span><span class="part"><span class="part-label">Context:</span> I am staring at [X] unread emails. Most are [newsletters, work threads, miscellaneous noise]. I have not checked properly for [X days or weeks]. The ones I actually need to find are about [specific topic or person].</span><span class="part"><span class="part-label">Task:</span> Walk me through a five-step triage I can finish in 30 minutes. Tell me exactly what to do with newsletters, old threads, and anything I might owe a reply on. Give me a single script I can copy-paste to acknowledge a late reply without over-apologising.</span><span class="part"><span class="part-label">Format:</span> Five bullet steps. Then the copy-paste script, labelled "Late reply, no grovel."</span></div>
+            </div>
+            <div class="tweak"><div class="tweak-label">Tweak</div><div>Ask for a version in your specific email client (Gmail, Outlook, Superhuman) if you want keyboard shortcuts.</div></div>
+          </div>
+        </details>
+
+        <details class="prompt">
+          <summary>
+            <span class="num">03</span>
+            <div class="summary-content">
+              <div class="prompt-title">The Meeting After the Meeting</div>
+              <div class="scenario">Half-formed notes. No next steps. Another call in ten minutes.</div>
+            </div>
+            <span class="chevron">&#9662;</span>
+          </summary>
+          <div class="prompt-body">
+            <div class="prompt-block">
+              <div class="block-label"><span>The prompt</span><button class="copy-btn" data-copy="prod-3">Copy</button></div>
+              <div class="prompt-text" id="prod-3"><span class="part"><span class="part-label">Role:</span> You are a sharp chief of staff who turns messy notes into clear action.</span><span class="part"><span class="part-label">Context:</span> I just left a [meeting type: 1:1, team sync, client call] with [who was there]. My raw notes are below: [paste notes]. The goal of the meeting was [what you were trying to decide or figure out].</span><span class="part"><span class="part-label">Task:</span> Pull out the three clearest action items, who owns each one, and when they are due. Flag anything left unresolved. Write the recap email I should send.</span><span class="part"><span class="part-label">Format:</span> Three bullets for action items (action, owner, due date). A "still open" list. Then a short email draft under 120 words.</span></div>
+            </div>
+            <div class="tweak"><div class="tweak-label">Tweak</div><div>Ask for the recap in a specific tone (warm, formal, direct) if the person you are sending it to matters.</div></div>
+          </div>
+        </details>
+
+        <details class="prompt">
+          <summary>
+            <span class="num">04</span>
+            <div class="summary-content">
+              <div class="prompt-title">The To-Do List That Won't Shrink</div>
+              <div class="scenario">Forty items on the list. Four actually matter.</div>
+            </div>
+            <span class="chevron">&#9662;</span>
+          </summary>
+          <div class="prompt-body">
+            <div class="prompt-block">
+              <div class="block-label"><span>The prompt</span><button class="copy-btn" data-copy="prod-4">Copy</button></div>
+              <div class="prompt-text" id="prod-4"><span class="part"><span class="part-label">Role:</span> You are a ruthless prioritisation coach who asks better questions than I do.</span><span class="part"><span class="part-label">Context:</span> Here is my full list: [paste everything on your plate]. Everything feels urgent. I have [X hours] this week to actually work on things, not counting meetings and life admin.</span><span class="part"><span class="part-label">Task:</span> Sort this into three buckets. Do this week. Do next week. Actually delete. For the "Actually delete" pile, explain in one sentence why each one can go.</span><span class="part"><span class="part-label">Format:</span> Three labelled buckets. Max seven items in "This week." A one-line reason next to each item you move to "Delete."</span></div>
+            </div>
+            <div class="tweak"><div class="tweak-label">Tweak</div><div>If you want to keep something in "This week" the AI tried to cut, ask it to push back on you once and see if your reason holds up.</div></div>
+          </div>
+        </details>
+
+        <details class="prompt">
+          <summary>
+            <span class="num">05</span>
+            <div class="summary-content">
+              <div class="prompt-title">The Decision You've Been Dodging</div>
+              <div class="scenario">There is a decision you keep rolling into next week.</div>
+            </div>
+            <span class="chevron">&#9662;</span>
+          </summary>
+          <div class="prompt-body">
+            <div class="prompt-block">
+              <div class="block-label"><span>The prompt</span><button class="copy-btn" data-copy="prod-5">Copy</button></div>
+              <div class="prompt-text" id="prod-5"><span class="part"><span class="part-label">Role:</span> You are a thoughtful friend who has watched me dodge this for a while. Kind, but not letting me off the hook.</span><span class="part"><span class="part-label">Context:</span> The decision: [what you are trying to decide]. Why I have been avoiding it: [the real reason, not the polite one]. What happens if I do not decide by [date]: [consequence].</span><span class="part"><span class="part-label">Task:</span> Give me three versions of the decision. Option A (the safe one). Option B (the bold one). Option C (the in-between one nobody would judge me for). Then tell me which one my gut probably already knows.</span><span class="part"><span class="part-label">Format:</span> Three options with a one-line consequence each. A final line titled "What your gut is saying" with a direct guess.</span></div>
+            </div>
+            <div class="tweak"><div class="tweak-label">Tweak</div><div>If you want to stress-test the answer, ask it to argue against its own recommendation.</div></div>
+          </div>
+        </details>
+
+      </div>
+    </section>
+
+    <!-- FINANCE -->
+    <section class="category" id="finance" role="tabpanel">
+      <div class="category-header">
+        <h2>Finance</h2>
+        <p>Spending audits, savings goals, and the subscriptions you forgot you were paying for.</p>
+      </div>
+      <div class="prompt-list">
+
+        <details class="prompt">
+          <summary>
+            <span class="num">01</span>
+            <div class="summary-content">
+              <div class="prompt-title">The Credit Card Archaeology</div>
+              <div class="scenario">Staring at a statement. No idea where the money went.</div>
+            </div>
+            <span class="chevron">&#9662;</span>
+          </summary>
+          <div class="prompt-body">
+            <div class="prompt-block">
+              <div class="block-label"><span>The prompt</span><button class="copy-btn" data-copy="fin-1">Copy</button></div>
+              <div class="prompt-text" id="fin-1"><span class="part"><span class="part-label">Role:</span> You are a non-judgmental financial analyst who spots spending patterns without making me feel bad.</span><span class="part"><span class="part-label">Context:</span> Here is my [card] statement for [month]. Total spend: [$X]. [Paste the statement or describe the main categories.]</span><span class="part"><span class="part-label">Task:</span> Group the charges into four to six buckets (eating out, subscriptions, groceries, etc.). Tell me the two biggest surprises. Flag any subscription I am paying for that looks unused or forgotten.</span><span class="part"><span class="part-label">Format:</span> A bucket table with totals. Two "surprise" bullets. A short subscription flag list.</span></div>
+            </div>
+            <div class="tweak"><div class="tweak-label">Tweak</div><div>Ask for a comparison to a normal month if you have had a weird one (travel, holidays, a move).</div></div>
+          </div>
+        </details>
+
+        <details class="prompt">
+          <summary>
+            <span class="num">02</span>
+            <div class="summary-content">
+              <div class="prompt-title">The Savings Goal, Reverse-Engineered</div>
+              <div class="scenario">You want something specific. The savings feel abstract.</div>
+            </div>
+            <span class="chevron">&#9662;</span>
+          </summary>
+          <div class="prompt-body">
+            <div class="prompt-block">
+              <div class="block-label"><span>The prompt</span><button class="copy-btn" data-copy="fin-2">Copy</button></div>
+              <div class="prompt-text" id="fin-2"><span class="part"><span class="part-label">Role:</span> You are a calm money planner who believes specific goals beat round numbers.</span><span class="part"><span class="part-label">Context:</span> What I want: [specific thing, e.g., three-week India trip, new laptop, house deposit]. Estimated cost: [$X]. Target month: [MM/YY]. Right now I can set aside about [$X] per month without cutting anything major.</span><span class="part"><span class="part-label">Task:</span> Tell me if the timeline is realistic. If not, give me two paths: extend the deadline, or find [$X] more per month. For the second path, suggest three specific places to look first. No generic advice.</span><span class="part"><span class="part-label">Format:</span> One-line verdict (realistic or not). Path A and Path B, each one paragraph. Three specific cut suggestions.</span></div>
+            </div>
+            <div class="tweak"><div class="tweak-label">Tweak</div><div>Say you do not want to touch [category, e.g., groceries, eating out] and let it work around that.</div></div>
+          </div>
+        </details>
+
+        <details class="prompt">
+          <summary>
+            <span class="num">03</span>
+            <div class="summary-content">
+              <div class="prompt-title">The Subscription Cull</div>
+              <div class="scenario">You are quietly bleeding money on things you signed up for once.</div>
+            </div>
+            <span class="chevron">&#9662;</span>
+          </summary>
+          <div class="prompt-body">
+            <div class="prompt-block">
+              <div class="block-label"><span>The prompt</span><button class="copy-btn" data-copy="fin-3">Copy</button></div>
+              <div class="prompt-text" id="fin-3"><span class="part"><span class="part-label">Role:</span> You are a minimalist friend who is not precious about software or streaming services.</span><span class="part"><span class="part-label">Context:</span> Here are my current subscriptions: [list them with prices, e.g., Netflix $15, iCloud $9.99, Headspace $12.99]. Monthly total: [$X].</span><span class="part"><span class="part-label">Task:</span> Sort into three groups. Keep (I use it every week). Downgrade (I have it but rarely, probably a cheaper tier will do). Cut (I have not opened it in 60 days). For each cut, give me the one-sentence cancellation path.</span><span class="part"><span class="part-label">Format:</span> Three grouped lists. A "what to do first" line at the bottom.</span></div>
+            </div>
+            <div class="tweak"><div class="tweak-label">Tweak</div><div>Add a "pause not cut" column if you hate cancelling permanently.</div></div>
+          </div>
+        </details>
+
+        <details class="prompt">
+          <summary>
+            <span class="num">04</span>
+            <div class="summary-content">
+              <div class="prompt-title">The 15-Minute Money Check</div>
+              <div class="scenario">You don't want a spreadsheet. You want a quick pulse check.</div>
+            </div>
+            <span class="chevron">&#9662;</span>
+          </summary>
+          <div class="prompt-body">
+            <div class="prompt-block">
+              <div class="block-label"><span>The prompt</span><button class="copy-btn" data-copy="fin-4">Copy</button></div>
+              <div class="prompt-text" id="fin-4"><span class="part"><span class="part-label">Role:</span> You are a gentle money mentor who believes short monthly check-ins beat perfect budgets.</span><span class="part"><span class="part-label">Context:</span> Last month I earned roughly [$X] and spent roughly [$X]. Big one-offs: [list anything unusual]. What I am working toward: [short-term goal, e.g., emergency fund, trip, paying off card].</span><span class="part"><span class="part-label">Task:</span> Give me a 15-minute review structure. Five questions I can answer out loud. End with one thing to actually do before next month.</span><span class="part"><span class="part-label">Format:</span> Five numbered questions. One "next step" line.</span></div>
+            </div>
+            <div class="tweak"><div class="tweak-label">Tweak</div><div>Ask for the same review formatted as a voice-note script so you can record it on a walk.</div></div>
+          </div>
+        </details>
+
+        <details class="prompt">
+          <summary>
+            <span class="num">05</span>
+            <div class="summary-content">
+              <div class="prompt-title">The Big Purchase Gut Check</div>
+              <div class="scenario">A purchase over $500 that you keep opening the tab for.</div>
+            </div>
+            <span class="chevron">&#9662;</span>
+          </summary>
+          <div class="prompt-body">
+            <div class="prompt-block">
+              <div class="block-label"><span>The prompt</span><button class="copy-btn" data-copy="fin-5">Copy</button></div>
+              <div class="prompt-text" id="fin-5"><span class="part"><span class="part-label">Role:</span> You are a thoughtful financial adviser who does not moralise about spending.</span><span class="part"><span class="part-label">Context:</span> What I am considering: [item, with link or description]. Price: [$X]. Why I want it: [honest reason]. What I would use it for in month one: [specific uses]. What I would use it for a year from now: [be honest].</span><span class="part"><span class="part-label">Task:</span> Run it through a five-question check: need vs want, cost per use over a year, what it replaces, whether I would still want it in 30 days, opportunity cost. Give me your verdict. If it is a no, tell me the version of the purchase that would be a yes.</span><span class="part"><span class="part-label">Format:</span> Five questions, each with a one-line answer. Final verdict. An optional "smaller version" recommendation.</span></div>
+            </div>
+            <div class="tweak"><div class="tweak-label">Tweak</div><div>Add a line asking it to push back twice if your first answer sounds like justification.</div></div>
+          </div>
+        </details>
+
+      </div>
+    </section>
+
+    <!-- COACHING -->
+    <section class="category" id="coaching" role="tabpanel">
+      <div class="category-header">
+        <h2>Coaching</h2>
+        <p>For the hard conversations, the career crossroads, and the stories you keep telling yourself.</p>
+      </div>
+      <div class="prompt-list">
+
+        <details class="prompt">
+          <summary>
+            <span class="num">01</span>
+            <div class="summary-content">
+              <div class="prompt-title">The Conversation You're Dreading</div>
+              <div class="scenario">You need to say something hard. You're rehearsing in the shower.</div>
+            </div>
+            <span class="chevron">&#9662;</span>
+          </summary>
+          <div class="prompt-body">
+            <div class="prompt-block">
+              <div class="block-label"><span>The prompt</span><button class="copy-btn" data-copy="coach-1">Copy</button></div>
+              <div class="prompt-text" id="coach-1"><span class="part"><span class="part-label">Role:</span> You are a direct but kind communication coach. You care about the relationship and the truth.</span><span class="part"><span class="part-label">Context:</span> Who I need to talk to: [person and their relationship to you]. What I need to say: [the thing you keep avoiding]. What I am worried about: [their likely reaction or your own emotional response]. What I want out of this conversation: [desired outcome].</span><span class="part"><span class="part-label">Task:</span> Draft the opening three sentences I can actually say out loud. Give me one line to use if they get defensive, and one to use if they shut down. End with what to say if the conversation goes off the rails.</span><span class="part"><span class="part-label">Format:</span> Three-sentence opening. Defensive response script. Shutdown response script. Off-the-rails rescue line.</span></div>
+            </div>
+            <div class="tweak"><div class="tweak-label">Tweak</div><div>Ask for the version of each line in your natural speech pattern (more casual, less corporate).</div></div>
+          </div>
+        </details>
+
+        <details class="prompt">
+          <summary>
+            <span class="num">02</span>
+            <div class="summary-content">
+              <div class="prompt-title">The Career Crossroads</div>
+              <div class="scenario">Two paths. You are leaning. You do not trust the lean yet.</div>
+            </div>
+            <span class="chevron">&#9662;</span>
+          </summary>
+          <div class="prompt-body">
+            <div class="prompt-block">
+              <div class="block-label"><span>The prompt</span><button class="copy-btn" data-copy="coach-2">Copy</button></div>
+              <div class="prompt-text" id="coach-2"><span class="part"><span class="part-label">Role:</span> You are a career coach who specialises in women in their 30s and 40s with real constraints (family, mortgages, identity shifts).</span><span class="part"><span class="part-label">Context:</span> Path A: [describe]. Path B: [describe]. What I am optimising for right now: [honest priority, e.g., income, time, learning, peace]. What I was optimising for five years ago: [answer].</span><span class="part"><span class="part-label">Task:</span> Name the one thing each path gives me that the other cannot. Name the one thing each path costs me. Then ask me the single question I need to answer before I decide.</span><span class="part"><span class="part-label">Format:</span> Two "gives" paragraphs. Two "costs" paragraphs. One closing question.</span></div>
+            </div>
+            <div class="tweak"><div class="tweak-label">Tweak</div><div>If you want the model to take a stance, ask: "If you had to bet, which one?"</div></div>
+          </div>
+        </details>
+
+        <details class="prompt">
+          <summary>
+            <span class="num">03</span>
+            <div class="summary-content">
+              <div class="prompt-title">The Mindset Reframe</div>
+              <div class="scenario">You are looping on a story that is not helpful.</div>
+            </div>
+            <span class="chevron">&#9662;</span>
+          </summary>
+          <div class="prompt-body">
+            <div class="prompt-block">
+              <div class="block-label"><span>The prompt</span><button class="copy-btn" data-copy="coach-3">Copy</button></div>
+              <div class="prompt-text" id="coach-3"><span class="part"><span class="part-label">Role:</span> You are a cognitive behavioural coach who reframes without dismissing feelings.</span><span class="part"><span class="part-label">Context:</span> The story I am telling myself: [exact sentence, e.g., "I am bad at money"]. Why it feels true right now: [recent evidence]. What it is costing me to keep believing it: [real consequence].</span><span class="part"><span class="part-label">Task:</span> Show me three ways this story is incomplete (not wrong, incomplete). Offer a different sentence I could try on without pretending the hard stuff is not real.</span><span class="part"><span class="part-label">Format:</span> Three "incomplete" bullets. One replacement sentence, written like I would actually say it.</span></div>
+            </div>
+            <div class="tweak"><div class="tweak-label">Tweak</div><div>If the new sentence feels fake, ask it to rewrite one closer to how you actually talk.</div></div>
+          </div>
+        </details>
+
+        <details class="prompt">
+          <summary>
+            <span class="num">04</span>
+            <div class="summary-content">
+              <div class="prompt-title">The Pattern Finder</div>
+              <div class="scenario">You've been journaling. You want to see what you're missing.</div>
+            </div>
+            <span class="chevron">&#9662;</span>
+          </summary>
+          <div class="prompt-body">
+            <div class="prompt-block">
+              <div class="block-label"><span>The prompt</span><button class="copy-btn" data-copy="coach-4">Copy</button></div>
+              <div class="prompt-text" id="coach-4"><span class="part"><span class="part-label">Role:</span> You are a perceptive reader who notices themes people miss in their own writing.</span><span class="part"><span class="part-label">Context:</span> Here are [3-5] recent entries or voice note transcripts: [paste them]. The period covered: [last month, last three months, etc.].</span><span class="part"><span class="part-label">Task:</span> Name the three themes that keep coming up. Not the topics, the feelings or patterns underneath. Tell me one thing I complain about that I actually have some control over. Tell me one thing I keep avoiding writing about directly.</span><span class="part"><span class="part-label">Format:</span> Three theme paragraphs. One "you control this" sentence. One "you are dancing around this" sentence.</span></div>
+            </div>
+            <div class="tweak"><div class="tweak-label">Tweak</div><div>Ask for a compassionate version if you are feeling raw, or a more direct version if you are ready.</div></div>
+          </div>
+        </details>
+
+        <details class="prompt">
+          <summary>
+            <span class="num">05</span>
+            <div class="summary-content">
+              <div class="prompt-title">The Values Check</div>
+              <div class="scenario">A decision that sounds right on paper but does not feel like you.</div>
+            </div>
+            <span class="chevron">&#9662;</span>
+          </summary>
+          <div class="prompt-body">
+            <div class="prompt-block">
+              <div class="block-label"><span>The prompt</span><button class="copy-btn" data-copy="coach-5">Copy</button></div>
+              <div class="prompt-text" id="coach-5"><span class="part"><span class="part-label">Role:</span> You are a values-based coach. You do not tell me what to do. You help me hear myself.</span><span class="part"><span class="part-label">Context:</span> The decision: [what you are about to say yes or no to]. My top three values right now: [list them, e.g., freedom, family, building something of my own]. How this decision lines up with each value: [honest one-liner per value].</span><span class="part"><span class="part-label">Task:</span> Tell me where this decision matches my values and where it conflicts. If there is a conflict, show me one way to rework the decision so it honours my values instead of overriding them.</span><span class="part"><span class="part-label">Format:</span> A match vs conflict table (two columns). A "reworked version" paragraph.</span></div>
+            </div>
+            <div class="tweak"><div class="tweak-label">Tweak</div><div>If you do not know your top three values, ask the model to help you name them first.</div></div>
+          </div>
+        </details>
+
+      </div>
+    </section>
+
+    <!-- PLANNING -->
+    <section class="category" id="planning" role="tabpanel">
+      <div class="category-header">
+        <h2>Planning</h2>
+        <p>Trips, dinner parties, big life moves, and the quarterly review you keep putting off.</p>
+      </div>
+      <div class="prompt-list">
+
+        <details class="prompt">
+          <summary>
+            <span class="num">01</span>
+            <div class="summary-content">
+              <div class="prompt-title">The Trip That Doesn't Feel Like a Tour</div>
+              <div class="scenario">X days in a place. You don't want the TripAdvisor top ten.</div>
+            </div>
+            <span class="chevron">&#9662;</span>
+          </summary>
+          <div class="prompt-body">
+            <div class="prompt-block">
+              <div class="block-label"><span>The prompt</span><button class="copy-btn" data-copy="plan-1">Copy</button></div>
+              <div class="prompt-text" id="plan-1"><span class="part"><span class="part-label">Role:</span> You are a well-travelled friend who knows the difference between tourist and local, and is not snobbish about either.</span><span class="part"><span class="part-label">Context:</span> Destination: [city or region]. Dates: [dates, number of days]. Travelling with: [solo, partner, kids, friend group]. What I am looking for: [slow mornings, great food, one big hike, a specific cultural experience]. What I am NOT looking for: [crowded landmarks, wine tours, whatever is off the list for you].</span><span class="part"><span class="part-label">Task:</span> Build a day-by-day outline. Mix one "known" thing a day with one "barely-on-the-map" thing a day. Keep mornings unscheduled if I asked for slow. Flag any reservation that needs to be made right now.</span><span class="part"><span class="part-label">Format:</span> Day-by-day outline. A "book these today" list at the top.</span></div>
+            </div>
+            <div class="tweak"><div class="tweak-label">Tweak</div><div>Ask for a rainy-day version of the same trip, or three restaurants it would recommend that are not on every blog.</div></div>
+          </div>
+        </details>
+
+        <details class="prompt">
+          <summary>
+            <span class="num">02</span>
+            <div class="summary-content">
+              <div class="prompt-title">The Dinner Party You Actually Want to Host</div>
+              <div class="scenario">You want people over. The logistics are making you want to cancel.</div>
+            </div>
+            <span class="chevron">&#9662;</span>
+          </summary>
+          <div class="prompt-body">
+            <div class="prompt-block">
+              <div class="block-label"><span>The prompt</span><button class="copy-btn" data-copy="plan-2">Copy</button></div>
+              <div class="prompt-text" id="plan-2"><span class="part"><span class="part-label">Role:</span> You are a hospitality expert who believes the host should enjoy the party too.</span><span class="part"><span class="part-label">Context:</span> Who is coming: [number of people, any dietary stuff]. Vibe I want: [casual kitchen hang, proper sit-down, cocktail situation]. Time I have to prep: [X hours]. My cooking level: [honest, e.g., confident with pasta, shaky with mains].</span><span class="part"><span class="part-label">Task:</span> Plan the menu (three courses or grazing, your call). Give me a prep timeline starting 24 hours before, so I am not sweating at 7pm. End with the one thing I should buy or borrow to feel less chaotic.</span><span class="part"><span class="part-label">Format:</span> Menu list. 24-hour timeline with timestamps. One "save the night" purchase.</span></div>
+            </div>
+            <div class="tweak"><div class="tweak-label">Tweak</div><div>Ask for a vegetarian swap on any main without losing the "main event" feeling.</div></div>
+          </div>
+        </details>
+
+        <details class="prompt">
+          <summary>
+            <span class="num">03</span>
+            <div class="summary-content">
+              <div class="prompt-title">The Big Life Move</div>
+              <div class="scenario">A move, a career change, a project that feels too big to start.</div>
+            </div>
+            <span class="chevron">&#9662;</span>
+          </summary>
+          <div class="prompt-body">
+            <div class="prompt-block">
+              <div class="block-label"><span>The prompt</span><button class="copy-btn" data-copy="plan-3">Copy</button></div>
+              <div class="prompt-text" id="plan-3"><span class="part"><span class="part-label">Role:</span> You are a project manager who has broken down messy life changes into clean weekly chunks.</span><span class="part"><span class="part-label">Context:</span> The change: [what you are doing, e.g., moving countries, launching a business, leaving a job]. Deadline or target: [date]. Time I have to work on this each week: [realistic hours, not optimistic ones]. The three things I am most worried about: [honest list].</span><span class="part"><span class="part-label">Task:</span> Break the next 8 weeks into a weekly plan. Each week: one main milestone plus three supporting tasks. Address each of my worries in the first three weeks. Flag where I will need help (friends, money, professional support).</span><span class="part"><span class="part-label">Format:</span> Week 1 through Week 8. Each week labelled with the milestone and three bullets. A "where you will need help" section at the end.</span></div>
+            </div>
+            <div class="tweak"><div class="tweak-label">Tweak</div><div>Ask for a four-week version if eight feels too long, or a buffered version if you know life will interrupt.</div></div>
+          </div>
+        </details>
+
+        <details class="prompt">
+          <summary>
+            <span class="num">04</span>
+            <div class="summary-content">
+              <div class="prompt-title">The 90-Day Check-In</div>
+              <div class="scenario">You set goals this quarter. You want the honest read, not the hopeful one.</div>
+            </div>
+            <span class="chevron">&#9662;</span>
+          </summary>
+          <div class="prompt-body">
+            <div class="prompt-block">
+              <div class="block-label"><span>The prompt</span><button class="copy-btn" data-copy="plan-4">Copy</button></div>
+              <div class="prompt-text" id="plan-4"><span class="part"><span class="part-label">Role:</span> You are a goal coach who does not let me grade on a curve.</span><span class="part"><span class="part-label">Context:</span> My three 90-day goals were: [list them]. Progress on each, honestly: [one to three lines each]. What got in the way: [real reasons, not excuses].</span><span class="part"><span class="part-label">Task:</span> Grade each goal (on track, behind, or shelved). For each one, tell me the single highest-impact thing I could do in the next two weeks to move the needle. If one should be shelved, give me permission and tell me why.</span><span class="part"><span class="part-label">Format:</span> Goal-by-goal review. One action per goal. A "shelve this" paragraph if relevant.</span></div>
+            </div>
+            <div class="tweak"><div class="tweak-label">Tweak</div><div>If you are feeling gentle, ask for the wins first. If you are feeling ruthless, ask for the gaps first.</div></div>
+          </div>
+        </details>
+
+        <details class="prompt">
+          <summary>
+            <span class="num">05</span>
+            <div class="summary-content">
+              <div class="prompt-title">The Gift List</div>
+              <div class="scenario">Birthdays, holidays, a wedding in three weeks. You do not want to default to a candle.</div>
+            </div>
+            <span class="chevron">&#9662;</span>
+          </summary>
+          <div class="prompt-body">
+            <div class="prompt-block">
+              <div class="block-label"><span>The prompt</span><button class="copy-btn" data-copy="plan-5">Copy</button></div>
+              <div class="prompt-text" id="plan-5"><span class="part"><span class="part-label">Role:</span> You are a thoughtful friend who is excellent at gifts and does not default to candles.</span><span class="part"><span class="part-label">Context:</span> Who I am shopping for: [name, your relationship, a few things about them, e.g., "my sister, 35, new mom, loves to cook but tired"]. Budget: [$X]. Occasion: [birthday, holiday, etc.]. What I have given before: [if anything].</span><span class="part"><span class="part-label">Task:</span> Give me three options at three different angles. One practical. One sentimental. One fun. For each, a one-line reason it fits her specifically. Tell me which one I should go with and why.</span><span class="part"><span class="part-label">Format:</span> Three labelled options. Short reasoning. A clear pick.</span></div>
+            </div>
+            <div class="tweak"><div class="tweak-label">Tweak</div><div>Ask for a "small add-on" that ties two of the options together if you want to go a little bigger.</div></div>
+          </div>
+        </details>
+
+      </div>
+    </section>
+
+    <!-- WRITING -->
+    <section class="category" id="writing" role="tabpanel">
+      <div class="category-header">
+        <h2>Writing</h2>
+        <p>For the email you've rewritten five times, the LinkedIn post that sounds like a robot, and the text you cannot seem to send.</p>
+      </div>
+      <div class="prompt-list">
+
+        <details class="prompt">
+          <summary>
+            <span class="num">01</span>
+            <div class="summary-content">
+              <div class="prompt-title">The Email You've Rewritten Five Times</div>
+              <div class="scenario">Three drafts. Still sounds wrong. Still sitting in drafts.</div>
+            </div>
+            <span class="chevron">&#9662;</span>
+          </summary>
+          <div class="prompt-body">
+            <div class="prompt-block">
+              <div class="block-label"><span>The prompt</span><button class="copy-btn" data-copy="write-1">Copy</button></div>
+              <div class="prompt-text" id="write-1"><span class="part"><span class="part-label">Role:</span> You are an editor who writes the way smart, warm people actually talk.</span><span class="part"><span class="part-label">Context:</span> Who the email is to: [person and your relationship]. What I am trying to do: [decline, ask, apologise, check in]. Here is my current draft: [paste it]. What feels off about it: [too stiff, too apologetic, too long, too corporate].</span><span class="part"><span class="part-label">Task:</span> Rewrite it in three versions. One warm, one direct, one in between. Keep each under 100 words. Keep anything from my draft that actually sounded like me.</span><span class="part"><span class="part-label">Format:</span> Three labelled versions. A one-line note on which you would send and why.</span></div>
+            </div>
+            <div class="tweak"><div class="tweak-label">Tweak</div><div>If it still sounds like AI, ask for a version with more contractions and fewer full stops.</div></div>
+          </div>
+        </details>
+
+        <details class="prompt">
+          <summary>
+            <span class="num">02</span>
+            <div class="summary-content">
+              <div class="prompt-title">The LinkedIn Post That Sounds Like You</div>
+              <div class="scenario">You want to post. Every draft reads like an HR newsletter.</div>
+            </div>
+            <span class="chevron">&#9662;</span>
+          </summary>
+          <div class="prompt-body">
+            <div class="prompt-block">
+              <div class="block-label"><span>The prompt</span><button class="copy-btn" data-copy="write-2">Copy</button></div>
+              <div class="prompt-text" id="write-2"><span class="part"><span class="part-label">Role:</span> You are a writing coach who helps women sound like themselves online, not like a corporate training module.</span><span class="part"><span class="part-label">Context:</span> What I want to post about: [topic or experience]. Why this matters to me: [one honest line]. The point I want to land: [one sentence]. My usual speaking voice: [pick two, e.g., warm, blunt, funny, grounded, dry].</span><span class="part"><span class="part-label">Task:</span> Draft the post in my voice. Open with a hook that does not say "I am excited to share." End with a line that invites a real conversation, not comment-farming.</span><span class="part"><span class="part-label">Format:</span> 150-220 words. No corporate filler. No "grateful for the journey" energy.</span></div>
+            </div>
+            <div class="tweak"><div class="tweak-label">Tweak</div><div>Ask for three different hook options so you can pick the one that sounds most like you.</div></div>
+          </div>
+        </details>
+
+        <details class="prompt">
+          <summary>
+            <span class="num">03</span>
+            <div class="summary-content">
+              <div class="prompt-title">The Tough Text</div>
+              <div class="scenario">The message to a friend, partner, or family member that you keep re-opening.</div>
+            </div>
+            <span class="chevron">&#9662;</span>
+          </summary>
+          <div class="prompt-body">
+            <div class="prompt-block">
+              <div class="block-label"><span>The prompt</span><button class="copy-btn" data-copy="write-3">Copy</button></div>
+              <div class="prompt-text" id="write-3"><span class="part"><span class="part-label">Role:</span> You are a thoughtful friend who is good at saying hard things without making them worse.</span><span class="part"><span class="part-label">Context:</span> Who this is going to: [person, relationship]. What happened: [brief, honest]. What I actually want to say: [the feeling under the feeling]. What I am worried about: [damage to the relationship, conflict, being misunderstood].</span><span class="part"><span class="part-label">Task:</span> Write three versions. One soft, one direct, one in between. Keep each under six lines. Nothing passive-aggressive.</span><span class="part"><span class="part-label">Format:</span> Three options, labelled by tone. A one-line note on which fits the relationship.</span></div>
+            </div>
+            <div class="tweak"><div class="tweak-label">Tweak</div><div>Ask for the version you would send if you knew for sure they would respond well.</div></div>
+          </div>
+        </details>
+
+        <details class="prompt">
+          <summary>
+            <span class="num">04</span>
+            <div class="summary-content">
+              <div class="prompt-title">The Thank-You Note People Actually Read</div>
+              <div class="scenario">Someone did something. You want to thank them without sounding like a Hallmark card.</div>
+            </div>
+            <span class="chevron">&#9662;</span>
+          </summary>
+          <div class="prompt-body">
+            <div class="prompt-block">
+              <div class="block-label"><span>The prompt</span><button class="copy-btn" data-copy="write-4">Copy</button></div>
+              <div class="prompt-text" id="write-4"><span class="part"><span class="part-label">Role:</span> You are a writer who believes specific beats grateful every time.</span><span class="part"><span class="part-label">Context:</span> Who I am thanking: [person and what they did]. Why it actually mattered: [honest, one or two lines]. Our relationship: [boss, friend, family, client]. What I do NOT want the note to sound like: [generic, over-the-top, transactional].</span><span class="part"><span class="part-label">Task:</span> Write a short note that says the specific thing. No "I cannot thank you enough." No "means the world." Just what the moment actually did for me.</span><span class="part"><span class="part-label">Format:</span> Three to five sentences. Plain language. One line that names the specific thing they did.</span></div>
+            </div>
+            <div class="tweak"><div class="tweak-label">Tweak</div><div>Ask for a handwritten-card-length version and an email-length version.</div></div>
+          </div>
+        </details>
+
+        <details class="prompt">
+          <summary>
+            <span class="num">05</span>
+            <div class="summary-content">
+              <div class="prompt-title">The Feedback, Without the Cringe</div>
+              <div class="scenario">You need to give honest feedback at work. Without being a jerk. Or a coward.</div>
+            </div>
+            <span class="chevron">&#9662;</span>
+          </summary>
+          <div class="prompt-body">
+            <div class="prompt-block">
+              <div class="block-label"><span>The prompt</span><button class="copy-btn" data-copy="write-5">Copy</button></div>
+              <div class="prompt-text" id="write-5"><span class="part"><span class="part-label">Role:</span> You are a manager who is known for being direct, kind, and specific. You do not do feedback sandwiches.</span><span class="part"><span class="part-label">Context:</span> Who I am giving feedback to: [role, relationship]. What they did: [specific behaviour]. The impact it had: [real consequence, not vague]. What I want to happen next time: [specific change].</span><span class="part"><span class="part-label">Task:</span> Draft the feedback. Lead with the observation, not the compliment. Name the impact. Be clear about what I want different. Leave room for them to respond.</span><span class="part"><span class="part-label">Format:</span> Four short paragraphs max. One line per beat: observation, impact, request, opening for their response.</span></div>
+            </div>
+            <div class="tweak"><div class="tweak-label">Tweak</div><div>Ask for a written-for-email version and a say-it-out-loud version.</div></div>
+          </div>
+        </details>
+
+      </div>
+    </section>
+
+    <!-- LEARNING -->
+    <section class="category" id="learning" role="tabpanel">
+      <div class="category-header">
+        <h2>Learning</h2>
+        <p>For the topic everyone assumes you already know, the dense article before your meeting, and the conversation you want to walk into smart.</p>
+      </div>
+      <div class="prompt-list">
+
+        <details class="prompt">
+          <summary>
+            <span class="num">01</span>
+            <div class="summary-content">
+              <div class="prompt-title">Explain It Like I'm Smart, Not Technical</div>
+              <div class="scenario">You want to understand something complex. Every explanation assumes you already know.</div>
+            </div>
+            <span class="chevron">&#9662;</span>
+          </summary>
+          <div class="prompt-body">
+            <div class="prompt-block">
+              <div class="block-label"><span>The prompt</span><button class="copy-btn" data-copy="learn-1">Copy</button></div>
+              <div class="prompt-text" id="learn-1"><span class="part"><span class="part-label">Role:</span> You are a brilliant teacher who explains through analogy, never through jargon. You treat me like I am smart, just not in this field yet.</span><span class="part"><span class="part-label">Context:</span> What I am trying to understand: [topic, concept, or specific thing]. Why I want to understand it: [conversation I am walking into, decision I am making, article I want to read]. What I already know: [honest starting point].</span><span class="part"><span class="part-label">Task:</span> Explain it in plain language with one strong analogy from everyday life. Give me the three things that actually matter. Skip the history lesson unless it matters.</span><span class="part"><span class="part-label">Format:</span> Two paragraphs plus a three-bullet "what actually matters" list. Every acronym defined the first time it appears.</span></div>
+            </div>
+            <div class="tweak"><div class="tweak-label">Tweak</div><div>If the analogy does not land, ask for a different one. Food, film, skincare, and fashion analogies usually win.</div></div>
+          </div>
+        </details>
+
+        <details class="prompt">
+          <summary>
+            <span class="num">02</span>
+            <div class="summary-content">
+              <div class="prompt-title">Summarise This Before My Meeting</div>
+              <div class="scenario">A dense article or report landed in your inbox. You have 10 minutes.</div>
+            </div>
+            <span class="chevron">&#9662;</span>
+          </summary>
+          <div class="prompt-body">
+            <div class="prompt-block">
+              <div class="block-label"><span>The prompt</span><button class="copy-btn" data-copy="learn-2">Copy</button></div>
+              <div class="prompt-text" id="learn-2"><span class="part"><span class="part-label">Role:</span> You are a sharp analyst who writes briefing notes for people walking into rooms where they need to sound informed.</span><span class="part"><span class="part-label">Context:</span> What I am reading: [paste the article, or describe it and link]. Meeting context: [who is there, what is being decided]. What I specifically need to know: [your angle or question].</span><span class="part"><span class="part-label">Task:</span> Give me the five bullet points I actually need. Flag anything that reads as opinion masquerading as fact. End with two smart questions I could ask in the meeting.</span><span class="part"><span class="part-label">Format:</span> Five bullets. One "watch for" line. Two questions.</span></div>
+            </div>
+            <div class="tweak"><div class="tweak-label">Tweak</div><div>Ask for a one-sentence summary at the top if you need the quick version before the bullets.</div></div>
+          </div>
+        </details>
+
+        <details class="prompt">
+          <summary>
+            <span class="num">03</span>
+            <div class="summary-content">
+              <div class="prompt-title">The News Story Decoder</div>
+              <div class="scenario">A big story is everywhere. Everyone has takes. You want to know what actually happened.</div>
+            </div>
+            <span class="chevron">&#9662;</span>
+          </summary>
+          <div class="prompt-body">
+            <div class="prompt-block">
+              <div class="block-label"><span>The prompt</span><button class="copy-btn" data-copy="learn-3">Copy</button></div>
+              <div class="prompt-text" id="learn-3"><span class="part"><span class="part-label">Role:</span> You are a calm journalist who explains without a political agenda and does not sensationalise.</span><span class="part"><span class="part-label">Context:</span> The story: [topic or headline]. What I have heard so far: [one or two lines]. What I want to understand: [the actual event, the context, or why people are reacting this way].</span><span class="part"><span class="part-label">Task:</span> Lay out what happened in a neutral paragraph. Explain the context I might be missing. Name the different perspectives without picking one. Flag anything still unverified.</span><span class="part"><span class="part-label">Format:</span> Four sections. What happened. Context. Perspectives. Still unclear.</span></div>
+            </div>
+            <div class="tweak"><div class="tweak-label">Tweak</div><div>If you want sources, ask for three across the political spectrum so you can check for yourself.</div></div>
+          </div>
+        </details>
+
+        <details class="prompt">
+          <summary>
+            <span class="num">04</span>
+            <div class="summary-content">
+              <div class="prompt-title">The Expert Cheat Sheet</div>
+              <div class="scenario">You are meeting someone in a field you know nothing about.</div>
+            </div>
+            <span class="chevron">&#9662;</span>
+          </summary>
+          <div class="prompt-body">
+            <div class="prompt-block">
+              <div class="block-label"><span>The prompt</span><button class="copy-btn" data-copy="learn-4">Copy</button></div>
+              <div class="prompt-text" id="learn-4"><span class="part"><span class="part-label">Role:</span> You are a briefing coach who prepares people for conversations in unfamiliar fields.</span><span class="part"><span class="part-label">Context:</span> Who I am meeting: [person and their work]. Field or industry: [e.g., venture capital, biotech, architecture, film production]. My level of knowledge: [honest, e.g., "I know nothing" or "I know the basics"]. How long I have to prep: [X minutes].</span><span class="part"><span class="part-label">Task:</span> Give me five terms to know, two questions I could ask that would make me sound curious not clueless, and one thing I should not pretend to know.</span><span class="part"><span class="part-label">Format:</span> A "know these five" list with one-line definitions. Two question prompts. One "do not bluff" line.</span></div>
+            </div>
+            <div class="tweak"><div class="tweak-label">Tweak</div><div>Ask for a version calibrated to a dinner conversation vs a work meeting.</div></div>
+          </div>
+        </details>
+
+        <details class="prompt">
+          <summary>
+            <span class="num">05</span>
+            <div class="summary-content">
+              <div class="prompt-title">The Book Without Reading the Book</div>
+              <div class="scenario">Everyone is talking about a book. You are not going to read it. You want the ideas anyway.</div>
+            </div>
+            <span class="chevron">&#9662;</span>
+          </summary>
+          <div class="prompt-body">
+            <div class="prompt-block">
+              <div class="block-label"><span>The prompt</span><button class="copy-btn" data-copy="learn-5">Copy</button></div>
+              <div class="prompt-text" id="learn-5"><span class="part"><span class="part-label">Role:</span> You are a book reviewer who distils big ideas without the chapter-by-chapter slog.</span><span class="part"><span class="part-label">Context:</span> The book: [title and author]. Why people are talking about it: [if you know]. What I actually want out of it: [one idea for a conversation, application to my life, or figuring out if I should buy it].</span><span class="part"><span class="part-label">Task:</span> Give me the core argument in one paragraph. The three ideas most people take from it. One idea the author gets pushback on. Then tell me if it is worth reading the whole thing or if this summary is enough.</span><span class="part"><span class="part-label">Format:</span> One-paragraph thesis. Three ideas. One critique. One verdict.</span></div>
+            </div>
+            <div class="tweak"><div class="tweak-label">Tweak</div><div>Ask for a "how this applies to women who don't code" angle if the book skews techy.</div></div>
+          </div>
+        </details>
+
+      </div>
+    </section>
+
+    <div class="newsletter-card">
+      <div class="eyebrow">Get new prompts in your inbox</div>
+      <h2>Real AI skills, delivered weekly.</h2>
+      <p>Every week, one practical prompt recipe you can use the same day. Built for women who don't code. Join and get the free AI App Guide on day one.</p>
+      <a class="cta" href="https://promptedbynupoor.substack.com" target="_blank" rel="noopener">Join the newsletter &rarr;</a>
+    </div>
+
+    <p class="signoff">Time saved is for living, not more work. Go call the friend you've been meaning to call.</p>
+  </main>
+
+  <footer>
+    <em>Prompted by Nupoor</em> &middot;
+    <a href="https://tiktok.com/@promptedbynupoor" target="_blank" rel="noopener">@promptedbynupoor</a>
+    &middot; AI made simple for women who don't code.
+  </footer>
+
+<script>
+  // Category tabs
+  const tabs = document.querySelectorAll('.tab');
+  const categories = document.querySelectorAll('.category');
+  tabs.forEach(tab => {
+    tab.addEventListener('click', () => {
+      const cat = tab.dataset.cat;
+      tabs.forEach(t => {
+        const active = t.dataset.cat === cat;
+        t.classList.toggle('active', active);
+        t.setAttribute('aria-selected', active ? 'true' : 'false');
+      });
+      categories.forEach(s => s.classList.toggle('active', s.id === cat));
+      // Close any open prompts when switching
+      document.querySelectorAll('.prompt[open]').forEach(p => p.removeAttribute('open'));
+      // Scroll the tabs bar into view
+      window.scrollTo({ top: document.querySelector('.tabs').offsetTop - 8, behavior: 'smooth' });
+    });
+  });
+
+  // Copy to clipboard, with RCTF preserved as plain text
+  document.querySelectorAll('.copy-btn').forEach(btn => {
+    btn.addEventListener('click', async (e) => {
+      e.preventDefault();
+      const targetId = btn.dataset.copy;
+      const el = document.getElementById(targetId);
+      if (!el) return;
+      // Build plain text from the parts
+      const parts = el.querySelectorAll('.part');
+      let text = '';
+      parts.forEach(p => {
+        const label = p.querySelector('.part-label')?.textContent || '';
+        const rest = p.textContent.replace(label, '').trim();
+        text += label + ' ' + rest + '\n\n';
+      });
+      try {
+        await navigator.clipboard.writeText(text.trim());
+        btn.textContent = 'Copied';
+        btn.classList.add('copied');
+        setTimeout(() => {
+          btn.textContent = 'Copy';
+          btn.classList.remove('copied');
+        }, 1800);
+      } catch (err) {
+        btn.textContent = 'Select manually';
+      }
+    });
+  });
+</script>
 </body>
 </html>
